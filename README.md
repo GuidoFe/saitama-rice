@@ -1,9 +1,9 @@
 # saitama-rice
 Arch linux desktop configuration
 
-Desktop manager: bspwm
-OS: Arch Linux
-Bar: polybar
+Desktop manager: bspwm  
+OS: Arch Linux  
+Bar: polybar  
 
 
 
