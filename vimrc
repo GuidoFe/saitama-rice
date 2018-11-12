@@ -10,17 +10,31 @@ Plugin 'ap/vim-css-color'
 Plugin 'chriskempson/base16-vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'reedes/vim-pencil'
+Plugin 'lervag/vimtex'
 " Emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
 Plugin 'mattn/emmet-vim'
 " A Vim plugin which shows a git diff in the 'gutter' (sign column). It shows which lines have been added, modified, or removed. You can also preview, stage, and undo individual hunks. The plugin also provides a hunk text object.
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'danro/rename.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vimwiki/vimwiki'
+
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Attempt to determine the type of a file based on its name and possibly itPlugin 'reedes/vim-pencil's contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
  
+set t_Co=256
 " Enable syntax highlighting
 syntax on
 let base16colorspace=256 

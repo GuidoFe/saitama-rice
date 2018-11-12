@@ -63,13 +63,11 @@ module-margin-right = 1
 
 font-0 = curie:style=Regular:size=12:antialias=false;1
 font-1 = Wuncon Siji:style=Regular:size=11;1
-font-2 = Hack Nerd Font:style=Medium:size=6;5
-font-3 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-4 = siji:pixelsize=10;1
+font-2 = FontAwesome:style=Regular:size=10;2
 
-modules-left = bspwm
+modules-left = bspwm meteo
 modules-center = mpd 
-modules-right = pulseaudio wlan eth battery date time powermenu
+modules-right = pulseaudio wlan airplanemode eth battery date time powermenu
 
 tray-position = right
 tray-padding = 2
@@ -137,7 +135,7 @@ fuzzy-match = true
 ;;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
 ;;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
 ;; Default: <label-state>
-format = %{T2}<label-state>%{T-}
+format = <label-state>
 ;
 ;; Available tokens:
 ;;   %name%
@@ -160,7 +158,7 @@ format = %{T2}<label-state>%{T-}
 ;;   %icon%
 ;;   %index%
 ;; Default: %icon%  %name%
-label-focused =
+label-focused =%{T2}%{T-}
 label-focused-foreground = ${colors.primary}
 ;label-focused-background = #3f3f3f
 ;label-focused-underline = #fba922
@@ -170,7 +168,7 @@ label-focused-foreground = ${colors.primary}
 ;;   %icon%
 ;;   %index%
 ;; Default: %icon%  %name%
-label-occupied =
+label-occupied =%{T2}%{T-}
 label-occupied-foreground = ${colors.primary}
 ;label-occupied-underline = #555555
 ;
@@ -179,8 +177,8 @@ label-occupied-foreground = ${colors.primary}
 ;;   %icon%
 ;;   %index%
 ;; Default: %icon%  %name%
-;label-urgent = %icon%
-;label-urgent-foreground = #000000
+label-urgent = %{T2}%{T-}
+label-urgent-foreground = #af3a03
 ;label-urgent-background = #bd2c40
 ;label-urgent-underline = #9b0a20
 ;
@@ -189,7 +187,7 @@ label-occupied-foreground = ${colors.primary}
 ;;   %icon%
 ;;   %index%
 ;; Default: %icon%  %name%
-label-empty =
+label-empty =%{T2}%{T-}
 ;label-empty-foreground = #55
 ;
 ;; The following labels will be used to indicate the layout/mode
@@ -310,11 +308,11 @@ interface = wlo1
 interval = 3.0
 
 format-connected = <label-connected>  
-label-connected = %{T2}%{T-}
+label-connected = %{A3:nm-menu.sh:}%{T2}%{T-}%{A}
 label-connected-foreground=#504945
-format-disconnected =
-label-disconnected =
-label-disconnected-foreground=${colors.foreground-alt}
+format-disconnected = <label-disconnected>
+label-disconnected = %{A3:nm-menu.sh:}%{T2}%{T-}%{A}
+label-disconnected-foreground=#504945
 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -422,7 +420,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = "%{T2}%{T-}"
+label-open = "%{T2}%{T-}"
 label-open-foreground = #427b58
 label-close = "%{T2}%{T-}"
 label-close-foreground = #9d0006
@@ -452,6 +450,19 @@ type = custom/script
 exec = /home/guidofe/Coding/mpd-advanced.sh
 tail = true
 ;click-left = kill -USR1 %pid%
+
+[module/meteo]
+type = custom/script
+exec = /home/guidofe/bin/meteo-plugin.sh
+tail = false
+interval = 960
+
+[module/airplanemode]
+type = custom/script
+exec = /home/guidofe/bin/airplanemode-plugin.sh
+tail = false
+interval = 1
+
 
 [settings]
 screenchange-reload = true

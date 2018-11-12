@@ -5,15 +5,15 @@
 # Web Browser
 
 super + w
-        firefox
+        firefox 
 
 # terminal emulator
 super + Return
-	termite
+	urxvt
 
 # program launcher
 super + d
-	rofi -show drun -modi drun
+	rofi -show drun -modi drun -config /home/guidofe/.config/rofi/themes/saitama.rasi
 
 # make sxhkd reload its configuration files:
 super + shift + r
@@ -133,10 +133,10 @@ super + {Left,Down,Up,Right}
 # Volume Keys
 
 XF86AudioLowerVolume
-        pactl set-sink-volume 0 -5%
+        pactl set-sink-volume 0 -1%
 
 XF86AudioRaiseVolume
-        pactl set-sink-volume 0 false ; pactl set-sink-volume 0 +5%
+        pactl set-sink-volume 0 false ; pactl set-sink-volume 0 +1%
 
 XF86AudioMute
         pactl set-sink-mute 0 toggle 
@@ -144,13 +144,13 @@ XF86AudioMute
 # Media keys
 
 XF86AudioPlay
-        mpc --host "/home/guidofe/.config/mpd/socket" toggle
+        play-mpd.sh
 
 XF86AudioNext
-        mpc --host "/home/guidofe/.config/mpd/socket" next
+        mpc next
 
 XF86AudioPrev
-        mpc --host "/home/guidofe/.config/mpd/socket" prev
+        mpc prev
 
 # Backlight
 
@@ -162,5 +162,5 @@ XF86MonBrightnessDown
 
 # Lock the screen
 
-super + ctrl + l
+super + shift + l
         i3lock-fancy -t ""
